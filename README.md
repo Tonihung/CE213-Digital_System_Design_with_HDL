@@ -1,7 +1,4 @@
 # Digital System Design with HDL
-
-This repository contains the coursework for the **Digital System Design with HDL** course at the **University of Information Technology - VNUHCM**.
-
 The course focuses on implementing fundamental digital circuits using **Verilog HDL**. The coursework covers combinational circuits, sequential circuits, registers, counters, finite state machines, and other digital system components. Each design is accompanied by a **testbench** used to simulate its operation, verify its functionality, and evaluate its outputs under different input conditions.
 
 Through laboratory exercises and a final project, students gain practical experience in HDL coding, RTL design, functional simulation, waveform analysis, debugging, and digital system verification.
