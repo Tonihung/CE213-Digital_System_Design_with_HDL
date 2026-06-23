@@ -74,5 +74,3 @@ Implementation of the main Control Unit and ALU Control modules responsible for 
 ### LAB07 – Simple MIPS Processor
 
 Integration of the datapath, main Control Unit, and ALU Control modules to implement a simple processor supporting the `add`, `lw`, and `sw` instructions.
-
----
