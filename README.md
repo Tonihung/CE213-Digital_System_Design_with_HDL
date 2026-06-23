@@ -57,7 +57,7 @@ Implementation of a synchronous counter with preset and clear functions, togethe
 
 ### LAB03 – Finite State Machine and Data Memory
 
-Implementation of a Moore finite state machine for detecting the `010` sequence and an SRAM-based data memory module.
+Implementation of a Moore and Mealy finite state machine for detecting the `010` sequence and an SRAM-based data memory module.
 
 ### LAB04 – Arithmetic Logic Unit and Multiplexer
 
