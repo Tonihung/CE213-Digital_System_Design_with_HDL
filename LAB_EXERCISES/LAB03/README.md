@@ -1,24 +1,24 @@
-# LAB03 – Sequence Detector and Data Memory
+# LAB03 – Finite State Machine and Data Memory
 
-This laboratory focuses on designing finite state machines and memory modules using **Verilog HDL** and **ModelSim**.
+This laboratory focuses on designing and verifying finite state machines and data memory using **Verilog HDL** and **ModelSim**.
 
 ## Exercise 1 – `010` Sequence Detector
 
-Design and verify both **Moore** and **Mealy** finite state machines that detect the input sequence `010`.
+Design and verify both **Moore** and **Mealy** finite state machines for detecting the input sequence `010`.
 
-The output is asserted when three consecutive input bits match the required sequence.
+The output is asserted when three consecutive input bits match the sequence.
 
 ### Moore FSM
 
-<!-- Add the Moore state diagram here -->
+<!-- Add the Moore FSM state diagram here -->
 
-A Verilog testbench reads input sequences from HEX files and verifies the detector output.
+A Verilog testbench reads input sequences from HEX files and verifies the Moore sequence detector.
 
 ### Mealy FSM
 
-<!-- Add the Mealy state diagram here -->
+<!-- Add the Mealy FSM state diagram here -->
 
-A separate testbench is used to verify the Mealy implementation with different input sequences.
+A Verilog testbench reads input sequences from HEX files and verifies the Mealy sequence detector.
 
 ## Exercise 2 – Data Memory
 
