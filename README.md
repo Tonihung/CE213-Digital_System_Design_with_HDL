@@ -67,11 +67,11 @@ Implementation of a **32-bit Arithmetic Logic Unit (ALU)** supporting arithmetic
 
 Design of a simple MIPS datapath by integrating previously implemented modules to execute the `add`, `lw`, and `sw` instructions.
 
-### LAB06 – Simple Control Unit
+### LAB06 – Simple MIPS Control Unit
 
 Implementation of the main Control Unit and ALU Control modules responsible for generating control signals for the simple MIPS datapath.
 
-### LAB07 – Simple Processor
+### LAB07 – Simple MIPS Processor
 
 Integration of the datapath, main Control Unit, and ALU Control modules to implement a simple processor supporting the `add`, `lw`, and `sw` instructions.
 
