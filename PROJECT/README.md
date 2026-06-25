@@ -2,25 +2,27 @@
 
 This project implements and verifies a hardware-based **2D Gaussian image filter** using **Verilog HDL** and **ModelSim**.
 
-The RTL design supports **3 × 3** and **5 × 5** Gaussian kernels for grayscale image filtering.
+The RTL design supports both **3 × 3** and **5 × 5** Gaussian kernels for grayscale image filtering.
 
 ## RTL Architecture
 
-The design follows a modular architecture consisting of:
+The design includes the following modules:
 
-* **Control Unit** – Controls the filtering process and processing states
-* **Datapath** – Connects the memory, buffering, window, and convolution modules
-* **BRAM** – Stores input and output image pixels
-* **Line Buffer** – Stores image rows required for convolution
-* **Sliding Window** – Generates the pixel window for each filtering operation
-* **Convolution Module** – Computes the Gaussian-filtered pixel value
-* **Top Module** – Integrates all RTL components
-* **Testbench** – Loads input pixels, runs the simulation, and writes the filtered output
+* **Control Unit** – Controls the filtering process
+* **Datapath** – Connects the processing modules
+* **BRAM** – Stores image pixel data
+* **Line Buffer** – Buffers image rows
+* **Sliding Window** – Generates convolution windows
+* **Convolution Module** – Computes filtered pixel values
+* **Top Module** – Integrates the complete design
+* **Testbench** – Loads input data and writes output results
 
 ## Processing Flow
 
 ```text
 Input HEX File
+      ↓
+Input BRAM
       ↓
 Line Buffer
       ↓
@@ -28,37 +30,64 @@ Sliding Window
       ↓
 Gaussian Convolution
       ↓
-Output BRAM
-      ↓
 Output HEX File
 ```
 
 ## Verilog Files
 
-| File                   | Description                                           |
-| ---------------------- | ----------------------------------------------------- |
-| `top.v`                | Top-level module integrating the complete design      |
-| `control_unit.v`       | Controls the filtering sequence and processing states |
-| `datapath.v`           | Connects and manages the RTL data path                |
-| `bram.v`               | Stores image pixel data                               |
-| `line_buffer.v`        | Buffers image rows for convolution                    |
-| `window.v`             | Generates the sliding pixel window                    |
-| `convolution_module.v` | Performs Gaussian convolution                         |
-| `tb.v`                 | Simulates and verifies the complete design            |
+| File                   | Description                     |
+| ---------------------- | ------------------------------- |
+| `top.v`                | Top-level integration           |
+| `control_unit.v`       | Controls the filtering sequence |
+| `datapath.v`           | Connects the RTL datapath       |
+| `bram.v`               | Stores image pixels             |
+| `line_buffer.v`        | Buffers image rows              |
+| `window.v`             | Generates sliding windows       |
+| `convolution_module.v` | Performs Gaussian convolution   |
+| `tb.v`                 | Testbench for simulation        |
 
 ## Simulation
 
-Open ModelSim in the `verilog` directory and run:
+Open the Verilog files in **ModelSim** and run the testbench.
 
-```tcl
-vlog *.v
-vsim work.tb
-add wave sim:/tb/*
-run -all
+Before running the simulation, edit the input HEX file path in `tb.v`:
+
+```verilog
+$readmemh(
+    "C:/Users/Toni Hung/Documents/UIT/HK2_2025-2026/HDL/PROJECT/hex_input/lena1.hex",
+    img_data
+);
 ```
 
-The testbench reads grayscale pixel data from an input HEX file, performs Gaussian filtering, and writes the processed pixels to an output HEX file.
+Edit the output HEX file paths:
+
+```verilog
+fd = $fopen(
+    "C:/Users/Toni Hung/Documents/UIT/HK2_2025-2026/HDL/PROJECT/hex_output/lena1_3x3.hex",
+    "w"
+);
+```
+
+```verilog
+fd = $fopen(
+    "C:/Users/Toni Hung/Documents/UIT/HK2_2025-2026/HDL/PROJECT/hex_output/lena1_5x5.hex",
+    "w"
+);
+```
+
+Replace these paths with the corresponding locations on your computer.
+
+Select the Gaussian kernel using `SEL_IN`:
+
+```verilog
+SEL_IN = 0;
+```
+
+* `SEL_IN = 0`: 3 × 3 Gaussian kernel
+* `SEL_IN = 1`: 5 × 5 Gaussian kernel
+
+After configuring the file paths and kernel size, compile the Verilog files and run the simulation in ModelSim.
 
 ## Python Utilities
 
-Image preprocessing, HEX conversion, output reconstruction, and image-quality evaluation are documented separately in [python/README.md](./python/README.md).
+Image conversion and evaluation scripts are documented separately in [python/README.md](./python/README.md).
