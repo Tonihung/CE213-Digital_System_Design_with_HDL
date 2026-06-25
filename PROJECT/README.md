@@ -46,26 +46,6 @@ Output HEX File
 | `convolution_module.v` | Performs Gaussian convolution                         |
 | `tb.v`                 | Simulates and verifies the complete design            |
 
-## Directory Structure
-
-```text
-PROJECT/
-├── input/
-├── output/
-├── python/
-│   └── README.md
-├── verilog/
-│   ├── bram.v
-│   ├── control_unit.v
-│   ├── convolution_module.v
-│   ├── datapath.v
-│   ├── line_buffer.v
-│   ├── tb.v
-│   ├── top.v
-│   └── window.v
-└── README.md
-```
-
 ## Simulation
 
 Open ModelSim in the `verilog` directory and run:
