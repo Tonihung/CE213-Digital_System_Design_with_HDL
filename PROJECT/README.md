@@ -22,8 +22,6 @@ The design follows a modular architecture consisting of:
 ```text
 Input HEX File
       ↓
-Input BRAM
-      ↓
 Line Buffer
       ↓
 Sliding Window
